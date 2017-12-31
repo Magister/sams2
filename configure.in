@@ -1,5 +1,5 @@
-AC_INIT(sams2, 2.0.0, sams@nixdev.net)
-AM_INIT_AUTOMAKE(sams2, 2.0.0)
+AC_INIT(sams2, 2.0.2, sams@nixdev.net)
+AM_INIT_AUTOMAKE(sams2, 2.0.2)
 AC_CONFIG_SRCDIR([src/tools.h])
 AC_CONFIG_HEADER([src/config.h])
 
@@ -99,6 +99,13 @@ eval httpd_server=$httpd_server
 eval HTTPD_ROOT=$HTTPD_ROOT
 eval SERVER_CONFIG_FILE=$SERVER_CONFIG_FILE
 eval HTTPD_INCLUDE=$HTTPD_INCLUDE
+if test -f /etc/debian_version  ; then eval distr="debian" ; else eval distr="other" ; fi
+if test -f /etc/debian_version  ; then eval apache24=`apache2 -v | grep "/2.4" &>/dev/null && echo 1 || echo 0 &` ; else eval apache24=`httpd -v | grep "/2.4" &>/dev/null && echo 1 || echo 0 &` ; fi
+
+#echo "HTTPD_ROOT:	  $HTTPD_ROOT"
+#echo "SERVER_CONFIG_FILE: $SERVER_CONFIG_FILE"
+#echo "HTTPD_INCLUDE:      $HTTPD_INCLUDE"
+#echo "debian              $debian"
 
 echo ""
 echo "Use MySQL API:      $use_mysql_dev"
@@ -133,5 +140,7 @@ if test "$use_mysql_dev" = "no" -a "$use_pq_dev" = "no" -a "$use_unixodbc_dev" =
 else
 	echo "Configure completed. Run make (or gmake) to build the programs."
 fi
+
+if test -f /etc/debian_version ; then sed -i 's/absdir=`cd "$dir" && pwd`/absdir="\/usr\/lib" \#changed/g' libtool ; fi
 
 echo ""

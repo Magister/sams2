@@ -1,0 +1,2 @@
+ln -s /etc/apache2/conf.d/sams2.conf /etc/apache2/sites-enabled/sams2.conf
+chmod 777 /usr/share/sams2/data

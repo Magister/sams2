@@ -1,0 +1,15 @@
+Index: sams2-2.0.2/etc/sams2.conf
+===================================================================
+--- sams2-2.0.2.orig/etc/sams2.conf
++++ sams2-2.0.2/etc/sams2.conf
+@@ -34,8 +34,8 @@ SQUIDROOTDIR=/etc/squid3
+ SQUIDLOGDIR=/var/log/squid3
+ SQUIDCACHEDIR=/var/spool/squid3
+ 
+-WBINFOPATH=/usr/local
+-SAMSPATH=/usr/local
++WBINFOPATH=/usr/bin
++SAMSPATH=/usr
+ SQUIDPATH=/usr/sbin
+ SQUIDGUARDLOGPATH=/var/log
+ SQUIDGUARDDBPATH=/var/db/squidguard

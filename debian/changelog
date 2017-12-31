@@ -1,8 +1,14 @@
+sams2 (2.0.2) stable; urgency=low
+
+  * Fixed bugs in Debian assembly
+
+ -- Dmitry Chemerik <chemerik@mail.ru>  Mon, 02 Dec 2013 16:52:52 +0300
+
 sams2 (2.0.0-1) stable; urgency=low
 
-  * Small fixes in Debian package
+  * fixed bugs in RHEL/CentOS 7
 
- -- Pavel Vinogradov <Pavel.Vinogradov@nixdev.net>  Mon, 06 Jan 2014 12:40:52 +0300
+ -- Dmitry Chemerik <chemerik@mail.ru>  Mon, 02 Dec 2013 16:52:52 +0300
 
 sams2 (2.0.0) stable; urgency=low
 

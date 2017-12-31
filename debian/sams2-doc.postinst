@@ -1,0 +1,1 @@
+ln -s /etc/apache2/conf.d/doc4sams2.conf /etc/apache2/sites-enabled/doc4sams2.conf

@@ -17,11 +17,11 @@ AC_ARG_WITH(pq-libraries,
     [ac_pq_libraries="$withval"])
 
 if test "x$ac_pq_includes" = "x"; then
-  ac_pq_includes="/usr/local/include /usr/include /usr/include/pgsql"
+  ac_pq_includes="/usr/local/include /usr/include /usr/include/pgsql /usr/include/postgresql"
 fi
 
 if test "x$ac_pq_libraries" = "x"; then
-  ac_pq_libraries="/usr/local/lib /usr/lib64 /usr/lib"
+  ac_pq_libraries="/usr/local/lib /usr/lib64 /usr/lib /usr/lib64/postgresql /usr/lib/postgresql"
 fi
 
 if test "$ac_use_pq" = "no"; then

@@ -1,0 +1,1 @@
+rm -f /etc/apache2/sites-enabled/sams2.conf
