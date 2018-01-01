@@ -1,0 +1,70 @@
+--- sams2-2.0.2.orig/plugins/fsusage/fsusage.cpp
++++ sams2-2.0.2/plugins/fsusage/fsusage.cpp
+@@ -5,6 +5,8 @@ using namespace std;
+ 
+ extern char * get_fsusage ();
+ 
++extern "C" {
++
+ string information()
+ {
+   string res;
+@@ -34,3 +36,4 @@ string author()
+   return "Andrey Ovcharov";
+ }
+ 
++}
+--- sams2-2.0.2.orig/plugins/loadavg/loadavg.cpp
++++ sams2-2.0.2/plugins/loadavg/loadavg.cpp
+@@ -4,6 +4,8 @@ using namespace std;
+ 
+ extern "C" const char * get_uptime ();
+ 
++extern "C" {
++
+ string information()
+ {
+   return get_uptime ();
+@@ -25,3 +27,4 @@ string author()
+   return "Andrey Ovcharov";
+ }
+ 
++}
+--- sams2-2.0.2.orig/src/pluginlist.cpp
++++ sams2-2.0.2/src/pluginlist.cpp
+@@ -356,7 +356,7 @@ bool PluginList::loadPlugin (const strin
+     }
+ 
+   dlerror();    /* Clear any existing error */
+-  *(void **) (&(pl->getInfo)) = dlsym(pl->handle, "_Z11informationv");
++  *(void **) (&(pl->getInfo)) = dlsym(pl->handle, "information");
+   if ((error = dlerror()) != NULL)
+     {
+       ERROR (error);
+@@ -364,7 +364,7 @@ bool PluginList::loadPlugin (const strin
+       free (pl);
+       return false;
+     }
+-  *(void **) (&(pl->getName)) = dlsym(pl->handle, "_Z4namev");
++  *(void **) (&(pl->getName)) = dlsym(pl->handle, "name");
+   if ((error = dlerror()) != NULL)
+     {
+       ERROR (error);
+@@ -372,7 +372,7 @@ bool PluginList::loadPlugin (const strin
+       free (pl);
+       return false;
+     }
+-  *(void **) (&(pl->getVersion)) = dlsym(pl->handle, "_Z7versionv");
++  *(void **) (&(pl->getVersion)) = dlsym(pl->handle, "version");
+   if ((error = dlerror()) != NULL)
+     {
+       ERROR (error);
+@@ -380,7 +380,7 @@ bool PluginList::loadPlugin (const strin
+       free (pl);
+       return false;
+     }
+-  *(void **) (&(pl->getAuthor)) = dlsym(pl->handle, "_Z6authorv");
++  *(void **) (&(pl->getAuthor)) = dlsym(pl->handle, "author");
+   if ((error = dlerror()) != NULL)
+     {
+     }
