@@ -6,3 +6,4 @@ httpd_m4.patch
 restore_missing_docs.patch
 php-mysql_to_php-mysqli.patch
 use_local_docs.patch
+fix_squid_directories.patch

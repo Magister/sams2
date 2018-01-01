@@ -5,6 +5,9 @@ sams2 (2.0.2-3) stable; urgency=low
   [ Misha Padalka <misha.cn.ua@gmail.com> ]
   * Fix compilation with gcc 6.3 from debian stretch
   * Allow building with MariaDB
+  * Use php-mysqli instead of obsolete php-mysql
+  * Use local docs in web interface
+  * Fix squid config & logs path for Debian
 
   [ Chugajstyr <notexist@gmail.com> ]
   * Update SAMS2 redirector for squid 3.4

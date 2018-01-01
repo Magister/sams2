@@ -1,0 +1,15 @@
+--- sams2-2.0.2.orig/etc/sams2.conf
++++ sams2-2.0.2/etc/sams2.conf
+@@ -30,9 +30,9 @@ DB_USER=
+ DB_PASSWORD=
+ 
+ SQUIDCACHEFILE=access.log
+-SQUIDROOTDIR=/etc/squid3
+-SQUIDLOGDIR=/var/log/squid3
+-SQUIDCACHEDIR=/var/spool/squid3
++SQUIDROOTDIR=/etc/squid
++SQUIDLOGDIR=/var/log/squid
++SQUIDCACHEDIR=/var/spool/squid
+ 
+ WBINFOPATH=/usr/bin
+ SAMSPATH=/usr
