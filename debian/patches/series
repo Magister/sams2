@@ -3,3 +3,4 @@ redirect_squid34.patch
 lang_EN.patch
 tags_squid34.patch
 httpd_m4.patch
+restore_missing_docs.patch
