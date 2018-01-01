@@ -1,6 +1,18 @@
-sams2 (2.0.2-1) stable; urgency=low
+sams2 (2.0.2-3) stable; urgency=low
 
-  * Many fixes
+  * Non-maintainer upload.
+
+  [ Misha Padalka <misha.cn.ua@gmail.com> ]
+  * Fix compilation with gcc 6.3 from debian stretch
+  * Allow building with MariaDB
+
+  [ Chugajstyr <notexist@gmail.com> ]
+  * Update SAMS2 redirector for squid 3.4
+  * Fix lang.EN
+  * Fix "+++WARNING: Unknown cache result" in syslog
+  * Rework debian packaging
+  * Fix some missing html docs
+  * Add logs rotation
 
  -- Misha Padalka <misha.cn.ua@gmail.com>  Mon, 01 Jan 2018 17:13:52 +0200
 
