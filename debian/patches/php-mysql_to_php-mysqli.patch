@@ -1,0 +1,103 @@
+--- sams2-2.0.2.orig/php/dbclass.php
++++ sams2-2.0.2/php/dbclass.php
+@@ -31,14 +31,14 @@ class SAMSDB
+ 
+   function mysqldb_query_value($query)
+   {
+-	if(($this->result = mysql_query($query, $this->link))==FALSE)
++	if(($this->result = mysqli_query($this->link, $query))==FALSE)
+ 	{
+ 		$this->dberror=1;
+-		$this->dberrortext=mysql_error();
++		$this->dberrortext=mysqli_error($this->link);
+ 	}
+ 	else
+ 	{
+-		$num_rows = mysql_num_rows($this->result);
++		$num_rows = mysqli_num_rows($this->result);
+ 		return($num_rows);
+ 	}
+ 	return($num_rows);
+@@ -127,7 +127,7 @@ class SAMSDB
+   }
+   function mysqldb_fetch_array()
+   {
+-         $row=mysql_fetch_array($this->result);
++         $row=mysqli_fetch_array($this->result);
+          return($row);
+   }
+   function pgsqldb_fetch_array()
+@@ -171,7 +171,7 @@ class SAMSDB
+ */
+   function mysqldb_query($query)
+   {
+-        $this->result = mysql_query($query,$this->link) or die("Invalid query: " . mysql_error());
++        $this->result = mysqli_query($this->link, $query) or die("Invalid query: " . mysqli_error($this->link));
+   }
+   function pgsqldb_query($query)
+   {
+@@ -222,7 +222,7 @@ class SAMSDB
+ */
+   function free_mysqldb_query()
+   {
+-    mysql_free_result($this->result);
++    ((mysqli_free_result($this->result) || (is_object($this->result) && (get_class($this->result) == "mysqli_result"))) ? true : false);
+   }
+   function free_pgsqldb_query()
+   {
+@@ -268,12 +268,13 @@ class SAMSDB
+ */
+   function mysqldb_connect($host,$user,$passwd,$dbname)
+   {
+-	if(($link=@mysql_connect($host,$user,$passwd,new_link))==FALSE)
++	$link = mysqli_connect($host, $user, $passwd);
++	if(!$link)
+ 	{
+ 		$this->dberror=1;
+-		$this->dberrortext=mysql_error();
++		$this->dberrortext=mysqli_connect_error();
+ 	}
+-	if($link && mysql_select_db($dbname)==FALSE)
++	if($link && mysqli_select_db($link, $dbname)==FALSE)
+ 	  {
+ 		$this->dberrortext="Error connection to database $dbname@$host<BR>";
+ 		$this->dberror=1;
+@@ -364,6 +365,9 @@ exit(0);
+ 	if($this->db_name=="MySQL" && $this->db_odbc==0 && $this->db_pdo==0)
+ 	{
+ 		$this->link=$this->mysqldb_connect($host,$user,$passwd,$dbname);
++		if ($this->dberror) {
++			die($this->dberrortext);
++		}
+ 		$this->samsdb_query("SET NAMES utf8");
+ 	}
+ 	if($this->db_name=="PostgreSQL" && $this->db_odbc==0 && $this->db_pdo==0)
+--- sams2-2.0.2.orig/php/setup.php
++++ sams2-2.0.2/php/setup.php
+@@ -139,7 +139,7 @@ function step_2($lang)
+ 	echo "<TABLE WIDTH=80%>";
+ 	if($SAMSConf->DB_ENGINE=="MySQL")
+ 	{
+-		get_php_function("mysql_connect",$setup_24, $lang);
++		get_php_function("mysqli_connect",$setup_24, $lang);
+ 	}
+ 	if($SAMSConf->DB_ENGINE=="PostgreSQL")
+ 	{
+@@ -434,11 +434,14 @@ echo "<h2>db:$db</h2>";
+     if($db=="MySQL" && ($odbc==0 || $odbc == "No"))
+       {
+ 	$charset="ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin";
+-	$link=@mysql_connect($host,$user,$passwd) || die (mysql_error());
+-	if($link && mysql_select_db($dbname)==FALSE)
++	$link=mysqli_connect($host, $user, $passwd);
++	if (!$link) {
++		die(mysqli_connect_error());
++	}
++	if($link && mysqli_select_db($link, $dbname)==FALSE)
+ 	  {
+ 		echo "Create database $dbname<BR>";
+-		$result = mysql_query("CREATE DATABASE $dbname  CHARACTER SET utf8 COLLATE utf8_general_ci") or die("Invalid query: " . mysql_error());
++		$result = mysqli_query($link, "CREATE DATABASE $dbname  CHARACTER SET utf8 COLLATE utf8_general_ci") or die("Invalid query: " . mysqli_error($link));
+ 		echo "Database $dbname Created<BR>";
+ 	  }
+ 	else

@@ -4,3 +4,4 @@ lang_EN.patch
 tags_squid34.patch
 httpd_m4.patch
 restore_missing_docs.patch
+php-mysql_to_php-mysqli.patch
