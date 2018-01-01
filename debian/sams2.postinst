@@ -1,5 +1,5 @@
 #!/bin/sh
-# postinst script for sams
+# postinst script for sams2
 #
 # see: dh_installdeb(1)
 
@@ -20,8 +20,7 @@ set -e
 
 case "$1" in
     configure)
-    	echo "sams2 postinst"
-#    	update-rc.d sams defaults
+	service rsyslog restart
     ;;
 
     abort-upgrade|abort-remove|abort-deconfigure)
@@ -39,5 +38,3 @@ esac
 #DEBHELPER#
 
 exit 0
-
-
