@@ -1,0 +1,236 @@
+--- sams2-2.0.2.orig/php/src/authadldtray.php
++++ sams2-2.0.2/php/src/authadldtray.php
+@@ -140,7 +140,7 @@ function AuthADLDValues()
+   require($lang);
+   PageTop("config_48.jpg","$AuthADLDValues_authadldtray_1 ");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/syncwithad.html\">$documentation</A>");
++  print("<A HREF=\"doc/syncwithad.html\">$documentation</A>");
+   print("<P>\n");
+   print("<P>\n");
+ 
+--- sams2-2.0.2.orig/php/src/authldaptray.php
++++ sams2-2.0.2/php/src/authldaptray.php
+@@ -140,7 +140,7 @@ function AuthLDAPValues()
+ 
+   PageTop("config_48.jpg",$lframe_sams_Auth_Title_LDAP_Config);
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/syncwithldap.html\">$documentation</A>");
++  print("<A HREF=\"doc/syncwithldap.html\">$documentation</A>");
+   print("<P>\n");
+ 
+   print("<TABLE CLASS=samstable WIDTH=\"90%\" BORDER=0>\n");
+--- sams2-2.0.2.orig/php/src/authntlmtray.php
++++ sams2-2.0.2/php/src/authntlmtray.php
+@@ -116,7 +116,7 @@ function AuthNTLMValues()
+ 
+   PageTop("config_48.jpg",$lframe_sams_Auth_Title_NTLM_Config);
+ //  print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-//  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/syncwithntlm.html\">Documentation</A>");
++//  print("<A HREF=\"doc/syncwithntlm.html\">Documentation</A>");
+ //  print("<P>\n");
+   print("<P>\n");
+ 
+--- sams2-2.0.2.orig/php/src/authtray.php
++++ sams2-2.0.2/php/src/authtray.php
+@@ -102,7 +102,7 @@ function AuthEnabledForm()
+   print("<BR><INPUT TYPE=\"SUBMIT\" value=\"$lframe_sams_Auth_ConfigureButton\">\n");
+   print("</FORM>\n");
+   print("<P><IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/authorization.html\">$documentation</A>");
++  print("<A HREF=\"doc/authorization.html\">$documentation</A>");
+ 
+ } 
+ 
+--- sams2-2.0.2.orig/php/src/configbuttom_3_import.php
++++ sams2-2.0.2/php/src/configbuttom_3_import.php
+@@ -638,7 +638,7 @@ function importdataform()
+ 	exit(0);
+   PageTop("importdb_48.jpg","$configbuttom_3_import_importdataform_1 ");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/importfromsams1.html\">$documentation</A>");
++  print("<A HREF=\"doc/importfromsams1.html\">$documentation</A>");
+   print("<P>\n");
+ 
+   print("<SCRIPT LANGUAGE=JAVASCRIPT>\n");
+--- sams2-2.0.2.orig/php/src/configbuttom_3_importcache.php
++++ sams2-2.0.2/php/src/configbuttom_3_importcache.php
+@@ -183,7 +183,7 @@ function selectimportdateform()
+  // Получаем дату, за которую производится импорт данных
+   PageTop("importcachedb_48.jpg","$configbuttom_3_importcache_selectimportdateform_1");
+   print("<P><IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/importfromsams1.html\">$documentation</A>");
++  print("<A HREF=\"doc/importfromsams1.html\">$documentation</A>");
+   print("<P>\n");
+   echo "<B>$configbuttom_3_importcache_selectimportdateform_2 $startdate $configbuttom_3_importcache_selectimportdateform_3 $enddate";
+   echo "<BR>$configbuttom_3_importcache_selectimportdateform_4</B>";
+@@ -216,7 +216,7 @@ function importcacheform()
+ 	exit(0);
+   PageTop("importcachedb_48.jpg","$configbuttom_3_import_importdataform_1 ");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/importfromsams1.html\">$documentation</A>");
++  print("<A HREF=\"doc/importfromsams1.html\">$documentation</A>");
+   print("<P>\n");
+ 
+   print("<FORM NAME=\"createdatabase\" ACTION=\"main.php\">\n");
+--- sams2-2.0.2.orig/php/src/configbuttom_4_backup.php
++++ sams2-2.0.2/php/src/configbuttom_4_backup.php
+@@ -146,7 +146,7 @@ function SaveBackUpForm()
+   
+ 	PageTop("backup_48.jpg","$backupbuttom_1_savebase_SaveBackUpForm_1");
+ 	print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-	print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/samsbackup.html\">$documentation</A>");
++	print("<A HREF=\"doc/samsbackup.html\">$documentation</A>");
+ 	print("<P>\n");
+ 
+ 	print("<FORM NAME=\"BACKUP\" ACTION=\"main.php\">\n");
+--- sams2-2.0.2.orig/php/src/configbuttom_5_restore.php
++++ sams2-2.0.2/php/src/configbuttom_5_restore.php
+@@ -52,7 +52,7 @@ function LoadBackUpForm()
+   
+   PageTop("reark_48.jpg","$backupbuttom_2_loadbase_LoadBackUpForm_1");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/samsbackup.html\">$documentation</A>");
++  print("<A HREF=\"doc/samsbackup.html\">$documentation</A>");
+   print("<P>\n");
+   print("<BR>$backupbuttom_2_loadbase_LoadBackUpForm_4\n");
+   print("<FORM NAME=\"LOADBACKUP\" ENCTYPE=\"multipart/form-data\" ACTION=\"main.php?show=exe&function=loadbackup&filename=configbuttom_5_restore.php\" METHOD=POST>\n");
+--- sams2-2.0.2.orig/php/src/configbuttom_6_moveusertrafficdata.php
++++ sams2-2.0.2/php/src/configbuttom_6_moveusertrafficdata.php
+@@ -53,7 +53,7 @@ function MoveUserTrafficDataForm()
+   
+ 	PageTop("switchuser_48.jpg","$MoveUserTrafficDataForm_1");
+ 	print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-	print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/samsbackup.html\">$documentation</A>");
++	print("<A HREF=\"doc/samsbackup.html\">$documentation</A>");
+ 	print("<P>\n");
+ 
+ 	print("<FORM NAME=\"BACKUP\" ACTION=\"main.php\">\n");
+--- sams2-2.0.2.orig/php/src/proxybuttom_1_prop.php
++++ sams2-2.0.2/php/src/proxybuttom_1_prop.php
+@@ -115,7 +115,7 @@ function ProxyReConfigForm()
+ 
+   PageTop("config_48.jpg","Proxy server<BR><FONT COLOR=\"BLUE\">$PROXYConf->s_description</FONT>");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/squid.html\">$documentation</A>");
++  print("<A HREF=\"doc/squid.html\">$documentation</A>");
+   print("<P>\n");
+   print("<P>\n");
+ 
+--- sams2-2.0.2.orig/php/src/proxytray.php
++++ sams2-2.0.2/php/src/proxytray.php
+@@ -89,7 +89,7 @@ function JSProxyInfo()
+ 
+   $htmlcode=$htmlcode."
+   <IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">
+-  <A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/squid.html\">$documentation</A>
++  <A HREF=\"doc/squid.html\">$documentation</A>
+   <P>
+   </CENTER></BODY></HTML>";
+   $htmlcode=str_replace("\"","\\\"",$htmlcode);
+--- sams2-2.0.2.orig/php/src/redirlisttray.php
++++ sams2-2.0.2/php/src/redirlisttray.php
+@@ -107,7 +107,7 @@ function AddURLListForm()
+ 				break;
+ 	}
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/accesslists.html\">$documentation</A>");
++  print("<A HREF=\"doc/accesslists.html\">$documentation</A>");
+   print("<P>\n");
+   print("<BR>\n");
+  
+@@ -397,7 +397,7 @@ function RedirListForm()
+ 		$type=" $regexlisttray_regexlisttray_1";
+   PageTop("redirect_48.jpg","$type <FONT COLOR=\"BLUE\">$row[s_name]</FONT>");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/accesslists.html#fileext\">$documentation</A>");
++  print("<A HREF=\"doc/accesslists.html#fileext\">$documentation</A>");
+   print("<P>\n");
+ 
+   print("<FORM NAME=\"destination\" ACTION=\"main.php\">\n");
+--- sams2-2.0.2.orig/php/src/shablonbuttom_1_prop.php
++++ sams2-2.0.2/php/src/shablonbuttom_1_prop.php
+@@ -96,7 +96,7 @@ function UpdateShablonForm()
+ 
+   PageTop("shablon.jpg","$shablon_1<BR>$shablonbuttom_1_prop_UpdateShablonForm_1 <FONT COLOR=\"BLUE\">$SHABLONConf->s_name</FONT>");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/templates.html\">$documentation</A>");
++  print("<A HREF=\"doc/templates.html\">$documentation</A>");
+   print("<P>\n");
+   print("<FORM NAME=\"UPDATESHABLON\" ACTION=\"main.php\">\n");
+   print("<INPUT TYPE=\"HIDDEN\" NAME=\"show\" value=\"exe\">\n");
+--- sams2-2.0.2.orig/php/src/shablonnew.php
++++ sams2-2.0.2/php/src/shablonnew.php
+@@ -65,7 +65,7 @@ function NewShablonForm()
+   
+   PageTop("shablon.jpg","$shablon_1<BR>$shablonnew_NewShablonForm_1");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/templates.html\">$documentation</A>");
++  print("<A HREF=\"doc/templates.html\">$documentation</A>");
+   print("<P>\n");
+ 
+   print("<SCRIPT>\n");
+--- sams2-2.0.2.orig/php/src/shablontray.php
++++ sams2-2.0.2/php/src/shablontray.php
+@@ -49,7 +49,7 @@ function ShablonUsers()
+   
+   PageTop("shablon.jpg","$shablon_1<BR>$shablontray_ShablonUsers_1 <FONT COLOR=\"BLUE\">$SHABLONConf->s_name</FONT>");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/templates.html\">$documentation</A>");
++  print("<A HREF=\"doc/templates.html\">$documentation</A>");
+   print("<P>\n");
+ 
+   print("<TABLE>\n");
+--- sams2-2.0.2.orig/php/src/trangebuttom_1_prop.php
++++ sams2-2.0.2/php/src/trangebuttom_1_prop.php
+@@ -139,7 +139,7 @@ function UpdateTRangeForm()
+   print("</FORM>\n");
+ 
+   print("</B><P><IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/templates.html\">$documentation</A>");
++  print("<A HREF=\"doc/templates.html\">$documentation</A>");
+ 
+ 
+ }
+--- sams2-2.0.2.orig/php/src/trangetray.php
++++ sams2-2.0.2/php/src/trangetray.php
+@@ -68,7 +68,7 @@ function AddTRangeForm()
+ 
+   PageTop("clock_48.jpg","$AddTRangeForm_trangetray_1");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/timerange.html\">$documentation</A>");
++  print("<A HREF=\"doc/timerange.html\">$documentation</A>");
+   print("<P>\n");
+  
+        print("<SCRIPT language=JAVASCRIPT>\n");
+@@ -180,7 +180,7 @@ function JSTRangeInfo()
+   $code=$code."</TABLE><B>$TRANGEConf->s_timestart - $TRANGEConf->s_timeend</B>
+   <P>
+   <IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">
+-  <A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/templates.html\">$documentation</A>
++  <A HREF=\"doc/templates.html\">$documentation</A>
+   <P>
+   </CENTER>
+   </BODY></HTML>";
+--- sams2-2.0.2.orig/php/src/webconfigbuttom_1_prop.php
++++ sams2-2.0.2/php/src/webconfigbuttom_1_prop.php
+@@ -60,7 +60,7 @@ function WebInterfaceReConfigForm()
+   
+   PageTop("config_48.jpg","$webconfigbuttom_1_prop_webconfigbuttom_1_propadmintray_1");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/webinterface.html\">$documentation</A>");
++  print("<A HREF=\"doc/webinterface.html\">$documentation</A>");
+   print("<P>\n");
+   print("<P>\n");
+ 
+--- sams2-2.0.2.orig/php/src/webconfigtray.php
++++ sams2-2.0.2/php/src/webconfigtray.php
+@@ -117,7 +117,7 @@ function SysInfo()
+ 
+    PageTop("stat_48.jpg","$webconfigbuttom_1_prop_webconfigbuttom_1_propadmintray_1");
+   print("<IMG SRC=\"$SAMSConf->ICONSET/help.jpg\">");
+-  print("<A HREF=\"http://sams.perm.ru/sams2/doc/".$SAMSConf->LANG."/webinterface.html\">$documentation</A>");
++  print("<A HREF=\"doc/webinterface.html\">$documentation</A>");
+   print("<P>\n");
+ 
+ exit;
